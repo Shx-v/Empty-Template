@@ -1,6 +1,5 @@
 import {
   ListItemIcon,
-  ListItemText,
   Collapse,
   List,
   Box,
@@ -10,21 +9,25 @@ import {
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const SideNavItem = ({ item, depth = 1, toggleSideNav }) => {
   const hasChildren = Array.isArray(item.children);
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleClick = () => {
     if (hasChildren) {
       setOpen((prev) => !prev);
     } else {
       navigate(item.path);
-      toggleSideNav();
+      if (toggleSideNav) toggleSideNav();
     }
   };
+
+  const isActive = location.pathname.includes(item.path);
 
   return (
     <>
@@ -40,6 +43,7 @@ const SideNavItem = ({ item, depth = 1, toggleSideNav }) => {
           pr: 2,
           py: 1.2,
           borderRadius: 1,
+          backgroundColor: isActive ? "#e0e0e0" : "transparent",
           "&:hover": {
             backgroundColor: "#f5f5f5",
           },
@@ -49,7 +53,13 @@ const SideNavItem = ({ item, depth = 1, toggleSideNav }) => {
           {item.icon && (
             <ListItemIcon sx={{ minWidth: 32 }}>{item.icon}</ListItemIcon>
           )}
-          <Typography variant="body2">{item.title}</Typography>
+          <Typography
+            variant="body2"
+            fontWeight={isActive ? "bold" : "normal"}
+            color={isActive ? "primary.main" : "text.primary"}
+          >
+            {item.title}
+          </Typography>
         </Box>
 
         {hasChildren &&
@@ -76,6 +86,17 @@ const SideNavItem = ({ item, depth = 1, toggleSideNav }) => {
       )}
     </>
   );
+};
+
+SideNavItem.propTypes = {
+  item: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    path: PropTypes.string,
+    icon: PropTypes.element,
+    children: PropTypes.array,
+  }).isRequired,
+  depth: PropTypes.number,
+  toggleSideNav: PropTypes.func,
 };
 
 export default SideNavItem;

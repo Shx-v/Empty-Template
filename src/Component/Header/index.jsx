@@ -7,6 +7,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Box from "@mui/material/Box";
 import { NotificationButton } from "./HeaderAction/Notification";
 import { ProfileButton } from "./HeaderAction/Profile";
+import PropTypes from "prop-types";
 
 const Header = (props) => {
   const { toggleSideNav, isSideNavOpen, loggedIn = false } = props;
@@ -38,6 +39,12 @@ const Header = (props) => {
       </Toolbar>
     </AppBar>
   );
+};
+
+Header.propTypes = {
+  toggleSideNav: PropTypes.func.isRequired,
+  isSideNavOpen: PropTypes.bool,
+  loggedIn: PropTypes.bool,
 };
 
 export default Header;

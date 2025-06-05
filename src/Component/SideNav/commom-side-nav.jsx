@@ -1,12 +1,7 @@
-import React from "react";
-import { ListItemIcon } from "@mui/material";
 import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
 import { useNavigate } from "react-router-dom";
 import SideNavSection from "./side-nav-section";
+import PropTypes from "prop-types";
 
 const drawerWidth = 240;
 
@@ -32,4 +27,8 @@ export const CommonSideNav = (props) => {
       ))}
     </Drawer>
   );
+};
+
+CommonSideNav.propTypes = {
+  sections: PropTypes.arrayOf(PropTypes.object).isRequired,
 };

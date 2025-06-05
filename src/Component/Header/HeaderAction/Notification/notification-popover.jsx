@@ -10,7 +10,7 @@ import {
   Button,
 } from "@mui/material";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import React from "react";
+import PropTypes from "prop-types";
 
 const NotificationPopover = (props) => {
   const {
@@ -18,11 +18,10 @@ const NotificationPopover = (props) => {
     onClose,
     open = false,
     notifications = [],
-    onViewAll, // callback for "View All" button
+    onViewAll,
     ...other
   } = props;
 
-  // Show only 3 latest notifications
   const latestNotifications = notifications.slice(0, 3);
 
   return (
@@ -110,6 +109,19 @@ const NotificationPopover = (props) => {
       )}
     </Popover>
   );
+};
+
+NotificationPopover.propTypes = {
+  anchorEl: PropTypes.any,
+  onClose: PropTypes.func.isRequired,
+  open: PropTypes.bool,
+  notifications: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      timestamp: PropTypes.string.isRequired,
+    })
+  ),
+  onViewAll: PropTypes.func,
 };
 
 export default NotificationPopover;

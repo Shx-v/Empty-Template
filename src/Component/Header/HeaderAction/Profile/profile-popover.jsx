@@ -14,7 +14,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import SettingsIcon from "@mui/icons-material/Settings";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import LogoutIcon from "@mui/icons-material/Logout";
-import React from "react";
+import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 
 const ProfilePopover = (props) => {
@@ -104,6 +104,12 @@ const ProfilePopover = (props) => {
       </Stack>
     </Popover>
   );
+};
+
+ProfilePopover.propTypes = {
+  anchorEl: PropTypes.any,
+  onClose: PropTypes.func.isRequired,
+  open: PropTypes.bool,
 };
 
 export default ProfilePopover;

@@ -1,5 +1,5 @@
 import { Box, Typography, List } from "@mui/material";
-import React from "react";
+import PropTypes from "prop-types";
 import SideNavItem from "./side-nav-item";
 
 const renderItems = (items = [], depth = 1, toggleSideNav) =>
@@ -37,6 +37,17 @@ const SideNavSection = ({ section, toggleSideNav }) => {
       <SideNavItem item={section} depth={1} toggleSideNav={toggleSideNav} />
     </List>
   );
+};
+
+SideNavSection.propTypes = {
+  section: PropTypes.shape({
+    header: PropTypes.string,
+    children: PropTypes.array,
+    title: PropTypes.string,
+    path: PropTypes.string,
+    icon: PropTypes.element,
+  }),
+  toggleSideNav: PropTypes.func,
 };
 
 export default SideNavSection;

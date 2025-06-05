@@ -1,14 +1,11 @@
 import {
   Drawer,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
   Box,
   Slide,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import SideNavSection from "./side-nav-section";
+import PropTypes from "prop-types";
 
 export const MobileSideNav = (props) => {
   const { toggleSideNav, isSideNavOpen, sections = [] } = props;
@@ -34,4 +31,10 @@ export const MobileSideNav = (props) => {
       </Box>
     </Drawer>
   );
+};
+
+MobileSideNav.propTypes = {
+  toggleSideNav: PropTypes.func.isRequired,
+  isSideNavOpen: PropTypes.bool.isRequired,
+  sections: PropTypes.arrayOf(PropTypes.object),
 };
