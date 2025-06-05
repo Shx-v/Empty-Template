@@ -55,7 +55,6 @@ const SideNavItem = ({ item, depth = 1, toggleSideNav }) => {
           )}
           <Typography
             variant="body2"
-            fontWeight={isActive ? "bold" : "normal"}
             color={isActive ? "primary.main" : "text.primary"}
           >
             {item.title}
