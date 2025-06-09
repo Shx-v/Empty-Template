@@ -7,6 +7,7 @@ const AuthLayoutRoot = styled("div")({
   display: "flex",
   flexDirection: "column",
   minHeight: "100vh",
+  backgroundColor: "#f4f6f8",
 });
 
 const AuthLayoutContainer = styled("div")(({ theme }) => ({
@@ -19,6 +20,7 @@ const AuthLayoutContainer = styled("div")(({ theme }) => ({
   paddingBottom: theme.spacing(4),
   paddingLeft: theme.spacing(2),
   paddingRight: theme.spacing(2),
+  backgroundColor: theme.palette.background.default,
 }));
 
 export const AuthLayout = ({ children }) => {

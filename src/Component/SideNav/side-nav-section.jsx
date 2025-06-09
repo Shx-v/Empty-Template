@@ -17,7 +17,7 @@ const SideNavSection = ({ section, toggleSideNav }) => {
 
   if (section.header) {
     return (
-      <Box sx={{ pt: 1 }}>
+      <Box sx={{ pt: 1, bgcolor: "background.default" }}>
         <Typography
           variant="body2"
           color="text.secondary"
@@ -25,7 +25,7 @@ const SideNavSection = ({ section, toggleSideNav }) => {
         >
           {section.header}
         </Typography>
-        <List disablePadding>
+        <List disablePadding sx={{ bgcolor: "background.paper" }}>
           {renderItems(section.children, 1, toggleSideNav)}
         </List>
       </Box>
@@ -33,7 +33,7 @@ const SideNavSection = ({ section, toggleSideNav }) => {
   }
 
   return (
-    <List disablePadding>
+    <List disablePadding sx={{ bgcolor: "background.paper" }}>
       <SideNavItem item={section} depth={1} toggleSideNav={toggleSideNav} />
     </List>
   );

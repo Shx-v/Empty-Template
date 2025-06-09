@@ -48,7 +48,11 @@ export const NotificationButton = () => {
 
   return (
     <Box>
-      <IconButton onClick={popover.handleOpen} ref={popover.anchorRef}>
+      <IconButton
+        onClick={popover.handleOpen}
+        ref={popover.anchorRef}
+        sx={{ color: "inherit" }}
+      >
         <Badge
           badgeContent={notifications.length}
           color="error"
