@@ -1,7 +1,9 @@
-import { Suspense } from "react";
+import { lazy, Suspense } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import { AuthLayout as Layout } from "@/Layout/AuthLayout";
 import Loader from "@/Component/Loader";
+
+const LoginPage = lazy(() => import("@/Page/Auth/Login"));
 
 export const authRoutes = [
   {
@@ -20,7 +22,7 @@ export const authRoutes = [
       },
       {
         path: "login",
-        element: <div>login</div>,
+        element: <LoginPage />,
       },
       {
         path: "register",
