@@ -19,6 +19,9 @@ export const CommonSideNav = (props) => {
           width: drawerWidth,
           boxSizing: "border-box",
           paddingTop: "65px",
+          bgcolor: "background.paper",
+          color: "text.primary",
+          borderRightColor: "divider",
         },
       }}
     >

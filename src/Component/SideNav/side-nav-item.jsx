@@ -43,15 +43,23 @@ const SideNavItem = ({ item, depth = 1, toggleSideNav }) => {
           pr: 2,
           py: 1.2,
           borderRadius: 1,
-          backgroundColor: isActive ? "#e0e0e0" : "transparent",
+          backgroundColor: isActive ? "action.hover" : "transparent",
+          color: isActive ? "primary.main" : "text.primary",
           "&:hover": {
-            backgroundColor: "#f5f5f5",
+            backgroundColor: "action.hover",
           },
         }}
       >
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
           {item.icon && (
-            <ListItemIcon sx={{ minWidth: 32 }}>{item.icon}</ListItemIcon>
+            <ListItemIcon
+              sx={{
+                minWidth: 32,
+                color: isActive ? "primary.main" : "inherit",
+              }}
+            >
+              {item.icon}
+            </ListItemIcon>
           )}
           <Typography
             variant="body2"
@@ -63,9 +71,15 @@ const SideNavItem = ({ item, depth = 1, toggleSideNav }) => {
 
         {hasChildren &&
           (open ? (
-            <ExpandLess fontSize="small" />
+            <ExpandLess
+              fontSize="small"
+              color={isActive ? "primary" : "inherit"}
+            />
           ) : (
-            <ExpandMore fontSize="small" />
+            <ExpandMore
+              fontSize="small"
+              color={isActive ? "primary" : "inherit"}
+            />
           ))}
       </ButtonBase>
 

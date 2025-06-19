@@ -5,7 +5,8 @@ const Loader = ({ open = true }) => {
   return (
     <Backdrop
       sx={{
-        color: "#fff",
+        backgroundColor: "rgba(0, 0, 0, 0.6)",
+        color: "primary.main",
         zIndex: (theme) => theme.zIndex.drawer + 1,
       }}
       open={open}

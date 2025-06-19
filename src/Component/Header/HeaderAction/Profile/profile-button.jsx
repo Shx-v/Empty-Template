@@ -16,9 +16,20 @@ export const ProfileButton = () => {
           borderStyle: "solid",
           borderRadius: "50%",
           display: "inline-flex",
+          bgcolor: "background.paper",
+          cursor: "pointer",
+          color: "text.primary",
         }}
       >
-        <Avatar sx={{ width: 30, height: 30, margin: 0.3 }} />
+        <Avatar
+          sx={{
+            width: 30,
+            height: 30,
+            margin: 0.3,
+            bgcolor: "primary.main",
+            color: "primary.contrastText",
+          }}
+        />
       </Box>
       <ProfilePopover
         anchorEl={popover.anchorRef.current}

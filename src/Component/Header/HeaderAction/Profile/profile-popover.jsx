@@ -40,6 +40,8 @@ const ProfilePopover = (props) => {
           sx: {
             minWidth: 250,
             p: 0,
+            bgcolor: "background.paper",
+            color: "text.primary",
           },
         },
       }}
@@ -47,7 +49,7 @@ const ProfilePopover = (props) => {
     >
       <Stack width="100%">
         <Stack paddingX={3} paddingY={2} spacing={0.5}>
-          <Typography fontWeight="bold" fontSize={18}>
+          <Typography fontWeight="bold" fontSize={18} color="text.primary">
             Username
           </Typography>
           <Typography variant="body2" color="text.secondary">
@@ -58,13 +60,13 @@ const ProfilePopover = (props) => {
           </Typography>
         </Stack>
 
-        <Divider />
+        <Divider sx={{ borderColor: "divider" }} />
 
         <List dense>
           <ListItem disablePadding>
             <ListItemButton onClick={() => navigate("/profile")}>
               <ListItemIcon>
-                <AccountCircleIcon fontSize="small" />
+                <AccountCircleIcon fontSize="small" color="primary" />
               </ListItemIcon>
               <ListItemText primary="Profile" />
             </ListItemButton>
@@ -73,7 +75,7 @@ const ProfilePopover = (props) => {
           <ListItem disablePadding>
             <ListItemButton onClick={() => navigate("/settings")}>
               <ListItemIcon>
-                <SettingsIcon fontSize="small" />
+                <SettingsIcon fontSize="small" color="primary" />
               </ListItemIcon>
               <ListItemText primary="Settings" />
             </ListItemButton>
@@ -82,14 +84,14 @@ const ProfilePopover = (props) => {
           <ListItem disablePadding>
             <ListItemButton onClick={() => navigate("/account")}>
               <ListItemIcon>
-                <ManageAccountsIcon fontSize="small" />
+                <ManageAccountsIcon fontSize="small" color="primary" />
               </ListItemIcon>
               <ListItemText primary="My Account" />
             </ListItemButton>
           </ListItem>
         </List>
 
-        <Divider />
+        <Divider sx={{ borderColor: "divider" }} />
 
         <Stack justifyContent={"center"} paddingX={4} paddingY={1}>
           <Button
@@ -97,6 +99,7 @@ const ProfilePopover = (props) => {
             onClick={() => {
               onClose();
             }}
+            color="primary"
           >
             Logout
           </Button>

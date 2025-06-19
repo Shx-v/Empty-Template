@@ -17,7 +17,7 @@ const SideNavSection = ({ section, toggleSideNav }) => {
 
   if (section.header) {
     return (
-      <Box sx={{ pt: 1 }}>
+      <Box sx={{ pt: 1, backgroundColor: "transparent" }}>
         <Typography
           variant="body2"
           color="text.secondary"
@@ -25,7 +25,15 @@ const SideNavSection = ({ section, toggleSideNav }) => {
         >
           {section.header}
         </Typography>
-        <List disablePadding>
+        <List
+          disablePadding
+          sx={{
+            backgroundColor: "background.paper",
+            display: "flex",
+            flexDirection: "column",
+            gap: 0.5, // or theme.spacing(1)
+          }}
+        >
           {renderItems(section.children, 1, toggleSideNav)}
         </List>
       </Box>
@@ -33,7 +41,7 @@ const SideNavSection = ({ section, toggleSideNav }) => {
   }
 
   return (
-    <List disablePadding>
+    <List disablePadding sx={{ backgroundColor: "background.paper" }}>
       <SideNavItem item={section} depth={1} toggleSideNav={toggleSideNav} />
     </List>
   );

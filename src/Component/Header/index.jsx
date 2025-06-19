@@ -15,7 +15,10 @@ const Header = (props) => {
     <AppBar
       position="fixed"
       elevation={1}
-      sx={{ backgroundColor: "#fff", color: "#000" }}
+      sx={{
+        backgroundColor: (theme) => theme.palette.background.paper,
+        color: (theme) => theme.palette.text.primary,
+      }}
     >
       <Toolbar>
         <IconButton
